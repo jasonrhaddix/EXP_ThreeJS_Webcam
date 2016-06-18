@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi, user-scalable=no">
+		
+		<meta property="og:title" content="" >
+		<meta property="og:site_name" content="" >
+		<meta property="og:url" content="" >
+		<meta property="og:description" content="">
+		<meta property="og:image" content="" >
+		<meta property="og:type" content="website" >
+		
+		<meta name="robots" content="noindex, nofollow" > <!-- DEV META. CHANGE ON RELEASE. (index, follow) -->
+		<meta name="description" content="" >
+
+        <!-- Place favicon.ico in the root directory -->
+
+		<!--
+		// APPLE TOUCH ICONS
+		<link rel="apple-touch-icon" sizes="57x57" href="site-images/images/icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="site-images/images/icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="site-images/images/icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="site-images/images/icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="site-images/images/icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="site-images/images/icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="site-images/images/icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="site-images/images/icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="site-images/images/icons/apple-icon-180x180.png">
+		
+		// DEFAULT ICONS
+		<link rel="icon" type="image/png" sizes="192x192"  href="site-images/images/icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="site-images/images/icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="site-assets/images/icons/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="site-assets/images/icons/favicons/favicon-16x16.png">
+		
+		// MS TILE ICON
+		-->
+		
+		<meta name="msapplication-TileImage" content="site-images/images/icons/ms-icon-144x144.png">
+		<!-- <link rel="manifest" href="site-images/images/icons/_manifest.json"> -->
+
+		<meta name="msapplication-TileColor" content="#000">
+		<meta name="theme-color" content="#000">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+        
+        <title></title>
+       
+        <!-- 
+        <link rel="stylesheet" href="css/normalize.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		-->
+        
+        <link rel="stylesheet" href="scripts/css/main.css">
+
+
+
+    </head>
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<video id="webcam" autoplay style="width:10%;  display:block; position: fixed; z-index:1"></video>
+		
+		<div id="error-element"></div>
+        <!-- application content here -->
+
+        <div id="threejs-container"></div>
+        <div id="title">
+        	<h1>WEBCAM INSTANCING</h1>
+        	<h2>WITH THREEJS</h2>
+        </div>
+        
+
+        <!-- <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script> -->
+        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script> -->
+        
+		
+		<script src="scripts/js/_lib/jquery/jquery-1.12.3.min.js"></script>
+		<script src="scripts/js/_lib/modernizr/modernizr-custom.js"></script>
+		<!--<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>-->
+		<script src="scripts/js/_lib/tweenjs/tween.min.js"></script>
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>-->
+		<script src="scripts/js/_lib/threejs/three.min.js"></script>
+		<!--<script src="scripts/js/_lib/threejs/sharders/BokehShader2.js"></script>-->
+		<script src="scripts/js/_lib/threejs/effects/AnaglyphEffect.js"></script>
+		<script src="scripts/js/_lib/threejs/loaders/LoadingManager.js"></script>
+		<script src="scripts/js/_lib/threejs/controls/OrbitControls.js"></script>
+		
+		<!--
+		<script src="scripts/js/_lib/wagner/Wagner.js"></script>
+		<script src="scripts/js/_lib/wagner/Wagner.base.js"></script>
+		<script src="scripts/js/_lib/wagner/ShaderLoader.js"></script>
+		-->
+
+		<script src="scripts/js/main.js"></script>
+		
+
+        <script type="text/javascript">
+        	init();
+        	
+		/*
+		'use strict';
+
+		navigator.getUserMedia = navigator.getUserMedia ||
+		                         navigator.webkitGetUserMedia ||
+		                         navigator.mozGetUserMedia;
+
+		// Put variables in global scope to make them available to the browser console.
+		var video = document.getElementById('webcam');
+		var constraints = window.constraints = {
+		  audio: false,
+		  video: true
+		};
+
+		//var errorElement = document.querySelector('#errorMsg');
+
+		// {video:true, audio:false}
+		navigator.getUserMedia(constraints,
+          function(stream)
+          {
+            console.log( stream );
+            video.src = window.URL.createObjectURL(stream);
+
+          },
+
+      function(err) {
+         console.log("The following error occurred: " + err.name);
+
+      })
+		// anonymous function
+		.then( function(stream)
+		{
+		  var videoTracks = stream.getVideoTracks();
+
+		  console.log('Got stream with constraints:', constraints);
+		  console.log('Using video device: ' + videoTracks[0].label);
+		  console.log('Video Container : ' + video );
+		  
+		  stream.onended = function() {
+		    console.log('Stream ended');
+		  };
+		 
+		  console.log( stream );
+		  window.stream = stream; // make variable available to browser console
+		  video.srcObject = stream;
+
+		})
+		// anonymous function
+		.catch( function(error)
+		{
+		  if (error.name === 'ConstraintNotSatisfiedError')
+		  {
+		    errorMsg('The resolution ' + constraints.video.width.exact + 'x' + constraints.video.width.exact + ' px is not supported by your device.');
+
+		  } else if (error.name === 'PermissionDeniedError')
+		  {
+		    errorMsg('Permissions have not been granted to use your camera and ' + 'microphone, you need to allow the page access to your devices in ' + 'order for the demo to work.');
+		  }
+
+		  errorMsg('getUserMedia error: ' + error.name, error);
+
+		});
+
+
+		function errorMsg(msg, error)
+		{
+		  errorElement.innerHTML += '<p>' + msg + '</p>';
+
+		  if (typeof error !== 'undefined') {
+		    console.error(error);
+		  }
+
+		}
+		*/
+		
+        </script>
+    </body>
+</html>

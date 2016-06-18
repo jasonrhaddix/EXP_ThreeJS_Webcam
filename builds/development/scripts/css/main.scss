@@ -1,0 +1,56 @@
+body {
+	background: #1f1f22;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+
+#webcam {	
+	position: fixed;
+	display: block;
+	width: 500px;
+	height: auto;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	/*
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+    transform: rotateY(180deg);
+    */
+}
+
+
+#title {
+	position: absolute;
+	width: 100%;
+	top: 1em;
+	left: 0;
+	text-align: center;
+	text-shadow: 1px 1px #000;
+	
+
+
+	h1, h2 {
+		position: relative;
+
+		font-family: Helvetica, sans-serif;
+		color:#FFF;
+		line-height: 0.5em;
+		letter-spacing: 0.2em;
+
+	}
+
+
+	h1 {
+		font-size: 1.2em;
+		font-weight: 600;
+	}
+
+
+	h2 {
+		font-size: 0.7em;
+		font-weight: 100;
+	}
+}
