@@ -53,7 +53,7 @@ var sphere_Mesh;
 var sphereMap_Mat;
 var sphereMap_Geom;
 var sphereMap_Mesh;
-var anaglyphEffect;
+
 
 
 // WEBCAM //
@@ -454,7 +454,6 @@ function threeJS_Render()
 
 function onWindowResize()
 {
-	anaglyphEffect.setSize( window.innerWidth, window.innerHeight );
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize( window.innerWidth, window.innerHeight );
