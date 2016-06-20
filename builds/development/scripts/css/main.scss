@@ -9,11 +9,12 @@ body {
 #webcam {	
 	position: fixed;
 	display: block;
-	width: 500px;
+	width: 100px;
 	height: auto;
 	top: 0;
 	left: 0;
 	z-index: 1;
+
 	/*
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
